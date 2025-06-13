@@ -1,0 +1,855 @@
+/* Base Typography & Variables */
+:root {
+    /* Gradients */
+    --gradient-1: linear-gradient(45deg, #FF3CAC, #784BA0, #2B86C5); /* Gradient cho banner */
+    --super-gradient: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); /* Gradient đa sắc động */
+    --super-gradient-size: 300% 300%; /* Kích thước gradient lớn để tạo hiệu ứng di chuyển */
+
+    /* Colors - Sẽ ít dùng trực tiếp cho màu chữ chính */
+    --primary-color-fallback: #FF3CAC; /* Màu dự phòng nếu gradient không hoạt động */
+    --secondary-color-fallback: #2B86C5; /* Màu dự phòng */
+    --text-color: #333; /* Màu chữ chung */
+    --text-light: #7f8c8d; /* Màu chữ phụ, nhạt hơn */
+    --bg-light: #f8f9fa; /* Nền tổng thể chế độ sáng */
+    --bg-section: white; /* Nền các phần nội dung */
+    --bg-card: #f8f9fa; /* Nền các card/item con */
+    --border-color: rgba(0, 0, 0, 0.1); /* Màu border nhẹ */
+    --link-color-fallback: #2B86C5; /* Màu liên kết dự phòng */
+
+    /* Shadows */
+    --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.1); /* Shadow nhẹ */
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15); /* Shadow khi hover */
+    --shadow-item: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Shadow nhẹ cho item */
+    --shadow-item-hover: rgba(0, 0, 0, 0.1) 0px 5px 15px; /* Shadow khi hover item */
+
+    /* Layout */
+    --spacing: 16px; /* Đơn vị khoảng cách cơ bản */
+    --navbar-bg: rgba(255, 255, 255, 0.95); /* Nền navbar */
+    --navbar-border: 1px solid rgba(255, 255, 255, 0.2); /* Border navbar */
+
+    /* Transitions */
+    --transition-fast: all 0.2s ease;
+    --transition-base: all 0.3s ease; /* Transition cơ bản */
+    --transition-slow: all 0.5s ease;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --gradient-1: linear-gradient(45deg, #00e6d4, #00c4b6, #00a29e); /* Gradient cho banner dark mode */
+    --super-gradient: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39, #FFEB3B); /* Gradient đa sắc dark mode (ví dụ) */
+    --primary-color-fallback: #00e6d4; /* Màu dự phòng dark mode */
+    --secondary-color-fallback: #00e6d4; /* Màu dự phòng dark mode */
+    --text-color: #e0e0e0; /* Màu chữ chính chế độ tối */
+    --text-light: #b0b0b0; /* Màu chữ phụ chế độ tối */
+    --bg-light: #1a1a1a; /* Nền tổng thể chế độ tối */
+    --bg-section: #2d2d2d; /* Nền các phần nội dung chế độ tối */
+    --bg-card: #333333; /* Nền các card/item con chế độ tối */
+    --border-color: rgba(255, 255, 255, 0.1); /* Border nhẹ chế độ tối */
+    --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.5); /* Shadow chế độ tối */
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.4); /* Shadow hover chế độ tối */
+    --shadow-item: rgba(255, 255, 255, 0.05) 0px 1px 2px 0px;
+    --shadow-item-hover: rgba(255, 255, 255, 0.1) 0px 5px 15px;
+    --navbar-bg: rgba(26, 26, 26, 0.95); /* Nền navbar chế độ tối */
+    --navbar-border: 1px solid rgba(255, 255, 255, 0.1); /* Border navbar chế độ tối */
+    --link-color-fallback: #00e6d4; /* Màu liên kết dự phòng dark mode */
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif; /* Font chữ ưu tiên */
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+    transition: var(--transition-base); /* Transition cho dark mode */
+}
+
+/* Typography with dynamic gradient */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    transition: var(--transition-base); /* Transition cho dark mode */
+}
+
+/* Các tiêu đề chính */
+h1, .main-content > section h3, .personal-info-section h3,
+.skill-category-header, .goal-item h4, .project-header,
+.education-item h4, .certificate-content h4, .navbar .nav-links a {
+    color: var(--primary-color-fallback); /* Màu dự phòng */
+    background: var(--super-gradient);
+    background-size: var(--super-gradient-size);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite; /* Hiệu ứng chuyển động */
+}
+
+/* Các tiêu đề phụ / màu phụ */
+h2, .education-degree {
+    color: var(--secondary-color-fallback); /* Màu dự phòng */
+    background: var(--super-gradient);
+    background-size: var(--super-gradient-size);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite reverse; /* Hiệu ứng chuyển động ngược lại */
+}
+
+
+h1 { font-size: 3.5rem; letter-spacing: -0.5px; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; margin-bottom: calc(var(--spacing) * 1.5); }
+p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
+
+/* Layout */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: var(--bg-section);
+    box-shadow: var(--shadow-base);
+    border-radius: 20px;
+    padding: calc(var(--spacing) * 2);
+    transition: var(--transition-base); /* Transition cho dark mode */
+}
+
+/* Animations */
+@keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Banner Section */
+.banner {
+    background: var(--gradient-1);
+    background-size: 300% 300%;
+    animation: gradient 15s ease infinite;
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
+    border-radius: 20px 20px 0 0;
+    margin: -2rem -2rem 0; /* Kéo ra sát mép container */
+    color: white;
+    position: relative;
+    overflow: hidden;
+    text-align: center; /* Căn giữa nội dung banner */
+}
+
+.profile-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column; /* Xếp dọc trên mobile */
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 1.5);
+    margin-bottom: calc(var(--spacing) * 1.5);
+}
+
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: var(--shadow-base);
+    animation: float 3s ease-in-out infinite; /* Thêm hiệu ứng float */
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-text h1,
+.profile-text h2 {
+    color: white; /* Giữ màu trắng cho text trong banner */
+    background: none; /* Bỏ gradient động cho text trong banner */
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    animation: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.profile-text h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 0.3rem;
+}
+
+.profile-text h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* Contact Info (on Banner) */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Cho phép xuống dòng */
+    gap: calc(var(--spacing) * 1.5);
+    margin: calc(var(--spacing) * 1.5) 0;
+}
+
+.contact-info .contact-item { /* Thêm .contact-info để tránh trùng lặp */
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 0.5);
+    color: white;
+    font-size: 1.05rem;
+}
+
+.contact-info .contact-item i {
+    font-size: 1.1rem;
+}
+
+/* Social Links (on Banner) */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: calc(var(--spacing) * 1.2);
+    margin-top: calc(var(--spacing) * 1.5);
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.4rem;
+    padding: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: var(--transition-base);
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    /* Màu nền gradient động khi hover */
+    background: var(--super-gradient);
+    background-size: var(--super-gradient-size);
+    animation: gradient 15s ease infinite;
+    -webkit-background-clip: border-box; /* Quan trọng để gradient hiển thị trên nền */
+    -webkit-text-fill-color: initial; /* Reset để icon không bị trong suốt */
+    color: white; /* Đảm bảo icon có màu khi hover */
+    box-shadow: 0 0 15px rgba(255,255,255,0.5); /* Thêm glow */
+}
+
+
+/* --- Section Styling Common --- */
+.main-content > section, .personal-info-section {
+    padding: calc(var(--spacing) * 2);
+    background-color: var(--bg-section);
+    box-shadow: var(--shadow-base);
+    border-radius: 15px;
+    margin-bottom: calc(var(--spacing) * 2);
+    transition: var(--transition-base);
+}
+
+.main-content > section:hover, .personal-info-section:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.main-content > section h3::after .personal-info-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--super-gradient); /* Line dưới tiêu đề cũng gradient động */
+    background-size: var(--super-gradient-size);
+    animation: gradient 15s ease infinite;
+    border-radius: 3px;
+}
+
+/* --- Item Styling Common (for info-item, about-item, skill-item, interest-item, contact-method-item, project-item, education-item, certificate-item) --- */
+.info-item, .about-item, .skill-item, .interest-item, .contact-method-item,
+.project-item, .education-item, .certificate-item {
+    background-color: var(--bg-card);
+    border-radius: 10px; /* Nhỏ hơn so với section */
+    box-shadow: var(--shadow-item);
+    transition: var(--transition-base);
+}
+
+.info-item:hover, .about-item:hover, .skill-item:hover, .interest-item:hover, .contact-method-item:hover,
+.project-item:hover, .education-item:hover, .certificate-item:hover {
+    transform: translateY(-3px); /* Hiệu ứng nhẹ hơn cho item */
+    box-shadow: var(--shadow-item-hover);
+}
+
+/* Icons within items */
+.info-item i, .about-item i, .skill-category-header i, .certificate-item i, .interest-item i, .contact-method-item i, .project-header i {
+    color: var(--secondary-color-fallback); /* Màu dự phòng cho icons */
+    /* Có thể thêm gradient cho icon nếu muốn, nhưng cần cân nhắc độ phức tạp */
+}
+
+
+/* --- Personal Information Section --- */
+.personal-info-section {
+    margin-top: calc(var(--spacing) * 2);
+    margin-bottom: calc(var(--spacing) * 2);
+}
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: calc(var(--spacing) * 1.5);
+    justify-content: center;
+    margin-top: calc(var(--spacing) * 2);
+}
+.info-item { /* Override padding for this specific item */
+    padding: var(--spacing);
+}
+.info-item i { font-size: 1.3em; min-width: 30px; text-align: center; }
+.info-item span { color: var(--text-color); font-size: 1.05em; }
+
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    margin: 0 -2rem;
+    padding: 1rem 2rem;
+    border-bottom: var(--navbar-border);
+    z-index: 1000;
+    transition: var(--transition-base);
+}
+.nav-container { max-width: 1200px; margin: 0 auto; }
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing) * 1.5);
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: var(--transition-base);
+}
+.nav-links a:hover {
+    background: var(--super-gradient); /* Nền gradient khi hover */
+    background-size: var(--super-gradient-size);
+    animation: gradient 15s ease infinite;
+    color: white; /* Text trắng trên nền gradient */
+    -webkit-background-clip: border-box; /* Quan trọng để gradient hiển thị trên nền */
+    -webkit-text-fill-color: initial; /* Reset để text có màu */
+}
+
+/* --- Giới thiệu (About Section) --- */
+.about p { text-align: justify; }
+.about-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
+    margin-top: calc(var(--spacing) * 1.5);
+}
+.about-item {
+    font-size: 1em;
+    color: var(--text-light);
+    padding: calc(var(--spacing) * 0.75) calc(var(--spacing) * 1.25);
+    border-radius: 25px;
+}
+.about-item i { font-size: 1.1em; }
+
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--spacing) * 2);
+}
+.skill-category {
+    background: var(--bg-card);
+    padding: calc(var(--spacing) * 1.5);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 8px 24px;
+}
+
+.skill-category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing);
+    margin-bottom: calc(var(--spacing) * 1.5);
+}
+.skill-category-header i { font-size: 2rem; }
+.skill-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+}
+.skill-item:hover { transform: translateX(5px); } /* Specific hover for skill item */
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: calc(var(--spacing) * 0.5);
+    font-weight: 500;
+    color: var(--text-color);
+}
+.skill-bar {
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.skill-level {
+    height: 100%;
+    background: var(--super-gradient); /* Thanh skill cũng gradient động */
+    background-size: var(--super-gradient-size);
+    animation: gradient 15s ease infinite;
+    transform-origin: left;
+    transition: transform 1s ease;
+}
+/* Skill levels for animation */
+.skill-item[data-level="90"] .skill-level { transform: scaleX(0.9); }
+.skill-item[data-level="80"] .skill-level { transform: scaleX(0.8); }
+.skill-item[data-level="75"] .skill-level { transform: scaleX(0.75); }
+.skill-item[data-level="70"] .skill-level { transform: scaleX(0.7); }
+.skill-item[data-level="65"] .skill-level { transform: scaleX(0.65); }
+.skill-item[data-level="50"] .skill-level { transform: scaleX(0.5); }
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing) * 0.5);
+    margin-top: var(--spacing);
+}
+.skill-tags span {
+    background: var(--bg-card);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+}
+
+/* Goals Section */
+.goals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(var(--spacing) * 2);
+}
+.goal-item {
+    background: var(--bg-card);
+    padding: calc(var(--spacing) * 1.5);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 8px 24px;
+}
+.goal-item h4 {
+    margin-bottom: var(--spacing);
+    padding-bottom: calc(var(--spacing) * 0.5);
+    border-bottom: 2px solid var(--border-color);
+}
+.goal-item ul { list-style: none; }
+.goal-item li {
+    margin-bottom: calc(var(--spacing) * 0.5);
+    padding-left: calc(var(--spacing) * 1.5);
+    position: relative;
+    color: var(--text-color);
+}
+.goal-item li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color-fallback); /* Màu dự phòng */
+    background: var(--super-gradient); /* Bullet cũng gradient động */
+    background-size: var(--super-gradient-size);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite reverse;
+}
+
+/* --- Dự án (Projects Section) --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--spacing) * 2);
+    margin-top: calc(var(--spacing) * 2);
+}
+.project-item {
+    padding: calc(var(--spacing) * 1.5);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    flex-direction: column;
+}
+.project-item:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-hover);
+}
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing);
+    margin-bottom: var(--spacing);
+}
+.project-header i { font-size: 2em; }
+.project-header h4 { margin: 0; font-size: 1.3em; } /* đã được áp dụng gradient ở phần Typography */
+.project-tech {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: var(--spacing);
+    font-size: 0.95em;
+}
+.project-item ul {
+    list-style: none;
+    margin-bottom: calc(var(--spacing) * 1.5);
+    flex-grow: 1;
+}
+.project-item li {
+    margin-bottom: calc(var(--spacing) * 0.5);
+    padding-left: calc(var(--spacing) * 1.25);
+    position: relative;
+    color: var(--text-color);
+}
+.project-item li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color-fallback); /* Màu dự phòng */
+    background: var(--super-gradient); /* Tick cũng gradient động */
+    background-size: var(--super-gradient-size);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite;
+    font-weight: bold;
+}
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing);
+    margin-top: auto;
+    justify-content: center;
+}
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--primary-color-fallback); /* Màu nền dự phòng */
+    background: var(--super-gradient); /* Nền gradient động */
+    background-size: var(--super-gradient-size);
+    animation: gradient 15s ease infinite;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-base);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px;
+}
+.project-link:hover {
+    background-color: var(--secondary-color-fallback); /* Màu nền dự phòng khi hover */
+    background: var(--super-gradient); /* Vẫn là gradient động */
+    background-size: var(--super-gradient-size);
+    animation: gradient 15s ease infinite reverse; /* Đổi hướng animation khi hover */
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+}
+.project-link i { color: white; }
+
+/* --- Học vấn (Education Section) --- */
+.education-item {
+    padding: calc(var(--spacing) * 1.5);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 8px 24px;
+    margin-bottom: calc(var(--spacing) * 1.5);
+}
+.education-item:last-child { margin-bottom: 0; }
+.education-item h4 {
+    margin-bottom: calc(var(--spacing) * 0.5);
+    font-size: 1.4em;
+}
+.education-period {
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: calc(var(--spacing) * 0.75);
+    font-size: 0.95em;
+}
+.education-degree {
+    margin-bottom: var(--spacing);
+    font-size: 1.1em;
+} /* đã được áp dụng gradient ở phần Typography */
+.education-description {
+    color: var(--text-color);
+    font-size: 1em;
+    line-height: 1.7;
+    padding-left: var(--spacing);
+    border-left: 3px solid var(--border-color);
+}
+.education-description br { line-height: 1; margin: 0; }
+
+/* --- Chứng chỉ (Certificates Section) --- */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: calc(var(--spacing) * 2);
+    margin-top: calc(var(--spacing) * 2);
+}
+.certificate-item {
+    padding: calc(var(--spacing) * 1.5);
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 8px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing);
+}
+.certificate-item i { font-size: 2.2em; flex-shrink: 0; }
+.certificate-content h4 {
+    margin-bottom: calc(var(--spacing) * 0.25);
+    font-size: 1.2em;
+} /* đã được áp dụng gradient ở phần Typography */
+.certificate-content p {
+    color: var(--text-light);
+    margin-bottom: calc(var(--spacing) * 0.25);
+    font-size: 0.9em;
+}
+.certificate-content span {
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 0.85em;
+}
+
+/* --- Sở thích (Interests Section) --- */
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: calc(var(--spacing) * 1.5);
+    text-align: center;
+    margin-top: calc(var(--spacing) * 2);
+}
+.interest-item {
+    padding: calc(var(--spacing) * 1.2);
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--spacing) * 0.75);
+}
+.interest-item i { font-size: 2.5em; }
+.interest-item span { font-weight: 500; color: var(--text-color); font-size: 1em; }
+
+/* --- Liên hệ (Contact Section) --- */
+.contact p { text-align: center; }
+.contact-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
+    margin-top: calc(var(--spacing) * 2);
+}
+.contact-method-item {
+    padding: var(--spacing) calc(var(--spacing) * 1.5);
+    border-radius: 25px;
+}
+.contact-method-item i { font-size: 1.3em; }
+.contact-method-item span, .contact-method-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.05em;
+    transition: color 0.2s ease;
+}
+.contact-method-item a:hover {
+    color: var(--primary-color-fallback); /* Màu dự phòng */
+    background: var(--super-gradient); /* Link cũng gradient động */
+    background-size: var(--super-gradient-size);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 15s ease infinite reverse;
+    text-decoration: underline;
+}
+.call-to-action {
+    font-style: italic;
+    font-size: 1.1em;
+    color: var(--text-light);
+    margin-top: calc(var(--spacing) * 2);
+}
+
+/* Theme Switch */
+.theme-switch-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.theme-switch {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: var(--transition-base);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color-fallback); /* Màu nền slider khi bật (dự phòng) */
+    background: var(--super-gradient); /* Slider cũng gradient động */
+    background-size: var(--super-gradient-size);
+    animation: gradient 15s ease infinite;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider .fa-sun {
+    color: #f1c40f; /* Màu icon mặt trời */
+}
+
+.slider .fa-moon {
+    color: #34495e; /* Màu icon mặt trăng */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem auto;
+        padding: var(--spacing);
+    }
+    .banner {
+        padding: calc(var(--spacing) * 1.5) var(--spacing);
+        margin: -1rem -1rem 0;
+    }
+    .profile-text h1 { font-size: 2.2rem; }
+    .profile-text h2 { font-size: 1.1rem; }
+
+    .contact-info { gap: var(--spacing); }
+    .contact-item { font-size: 0.95rem; }
+
+    .personal-info-section {
+        padding: var(--spacing);
+        margin-top: var(--spacing);
+        margin-bottom: var(--spacing);
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing);
+    }
+    .personal-info-section h3 { font-size: 1.5rem; }
+    .info-item { font-size: 0.9em; padding: calc(var(--spacing) * 0.75); }
+
+    .navbar { padding: 0.75rem 1rem; }
+    .nav-links {
+        flex-direction: column;
+        gap: calc(var(--spacing) * 0.75);
+        align-items: center;
+    }
+    .nav-links a { width: 100%; text-align: center; padding: 0.4rem 0.8rem; }
+
+    .main-content > section { padding: calc(var(--spacing) * 1.5); }
+    .main-content > section h3 { font-size: 1.5rem; margin-bottom: calc(var(--spacing) * 1.2); }
+
+    .about p { text-align: left; }
+    .about-details { flex-direction: column; gap: var(--spacing); }
+
+    .skills-grid, .projects-grid, .certificates-grid, .goals-container, .interests-grid {
+        grid-template-columns: 1fr;
+        gap: calc(var(--spacing) * 1.5);
+    }
+    .skill-category { padding: var(--spacing); }
+    .skill-category-header h4 { font-size: 1.2rem; }
+    .goal-item h4 { font-size: 1.2rem; }
+    .project-item { padding: var(--spacing); }
+    .project-header h4 { font-size: 1.2rem; }
+    .education-item { padding: var(--spacing); }
+    .education-item h4 { font-size: 1.2em; }
+    .education-degree { font-size: 1em; }
+    .certificate-item { padding: var(--spacing); }
+    .interest-item { padding: var(--spacing); }
+
+    .theme-switch-wrapper { top: 1rem; right: 1rem; }
+    .github-stats { margin-top: calc(var(--spacing) * 2); }
+    .github-stats img { width: 100%; }
+
+    .contact p { font-size: 1em; }
+    .contact-methods { flex-direction: column; gap: var(--spacing); }
+    .contact-method-item { font-size: 0.95em; padding: calc(var(--spacing) * 0.75); }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.4rem; }
+    p { font-size: 1em; }
+
+    .profile-pic { width: 120px; height: 120px; }
+    .profile-text h1 { font-size: 1.8rem; }
+    .profile-text h2 { font-size: 1rem; }
+
+    .social-links { gap: var(--spacing); }
+    .social-icon { font-size: 1.2rem; padding: 10px; }
+
+    .nav-links a { font-size: 0.9em; }
+
+    .skill-category-header i { font-size: 1.8rem; }
+    .skill-info { font-size: 0.9em; }
+    .skill-tags span { font-size: 0.8rem; }
+
+    .goal-item h4 { font-size: 1.1em; }
+    .goal-item li { font-size: 0.95em; }
+
+    .project-header i { font-size: 1.8em; }
+    .project-header h4 { font-size: 1.1em; }
+    .project-tech { font-size: 0.85em; }
+    .project-item li { font-size: 0.9em; }
+    .project-link { padding: 0.6rem 1rem; font-size: 0.9em; }
+
+    .education-item h4 { font-size: 1.1em; }
+    .education-period, .education-degree, .education-description { font-size: 0.9em; }
+
+    .certificate-item i { font-size: 2em; }
+    .certificate-content h4 { font-size: 1.1em; }
+    .certificate-content p, .certificate-content span { font-size: 0.8em; }
+
+    .interest-item i { font-size: 2em; }
+    .interest-item span { font-size: 0.9em; }
+
+    .call-to-action { font-size: 1em; }
+    
+}
