@@ -1,65 +1,57 @@
-/* Base Typography & Variables */
 :root {
-    /* Gradients */
-    --gradient-1: linear-gradient(45deg, #FF3CAC, #784BA0, #2B86C5); /* Gradient cho banner */
-    --super-gradient: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); /* Gradient đa sắc động */
-    --super-gradient-size: 300% 300%; /* Kích thước gradient lớn để tạo hiệu ứng di chuyển */
+    --gradient-1: linear-gradient(45deg, #FF3CAC, #784BA0, #2B86C5);
+    --super-gradient: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    --super-gradient-size: 300% 300%;
 
-    /* Colors - Sẽ ít dùng trực tiếp cho màu chữ chính */
-    --primary-color-fallback: #FF3CAC; /* Màu dự phòng nếu gradient không hoạt động */
-    --secondary-color-fallback: #2B86C5; /* Màu dự phòng */
-    --text-color: #333; /* Màu chữ chung */
-    --text-light: #7f8c8d; /* Màu chữ phụ, nhạt hơn */
-    --bg-light: #f8f9fa; /* Nền tổng thể chế độ sáng */
-    --bg-section: white; /* Nền các phần nội dung */
-    --bg-card: #f8f9fa; /* Nền các card/item con */
-    --border-color: rgba(0, 0, 0, 0.1); /* Màu border nhẹ */
-    --link-color-fallback: #2B86C5; /* Màu liên kết dự phòng */
+    --primary-color-fallback: #FF3CAC;
+    --secondary-color-fallback: #2B86C5;
+    --text-color: #333;
+    --text-light: #7f8c8d;
+    --bg-light: #f8f9fa;
+    --bg-section: white;
+    --bg-card: #f8f9fa;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --link-color-fallback: #2B86C5;
 
-    /* Shadows */
-    --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.1); /* Shadow nhẹ */
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15); /* Shadow khi hover */
-    --shadow-item: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; /* Shadow nhẹ cho item */
-    --shadow-item-hover: rgba(0, 0, 0, 0.1) 0px 5px 15px; /* Shadow khi hover item */
+    --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --shadow-item: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    --shadow-item-hover: rgba(0, 0, 0, 0.1) 0px 5px 15px;
 
-    /* Layout */
-    --spacing: 16px; /* Đơn vị khoảng cách cơ bản */
-    --navbar-bg: rgba(255, 255, 255, 0.95); /* Nền navbar */
-    --navbar-border: 1px solid rgba(255, 255, 255, 0.2); /* Border navbar */
+    --spacing: 16px;
+    --navbar-bg: rgba(255, 255, 255, 0.95);
+    --navbar-border: 1px solid rgba(255, 255, 255, 0.2);
 
-    /* Transitions */
     --transition-fast: all 0.2s ease;
-    --transition-base: all 0.3s ease; /* Transition cơ bản */
+    --transition-base: all 0.3s ease;
     --transition-slow: all 0.5s ease;
 }
 
-/* Dark Theme Variables */
 [data-theme="dark"] {
-    --gradient-1: linear-gradient(45deg, #00e6d4, #00c4b6, #00a29e); /* Gradient cho banner dark mode */
-    --super-gradient: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39, #FFEB3B); /* Gradient đa sắc dark mode (ví dụ) */
-    --primary-color-fallback: #00e6d4; /* Màu dự phòng dark mode */
-    --secondary-color-fallback: #00e6d4; /* Màu dự phòng dark mode */
-    --text-color: #e0e0e0; /* Màu chữ chính chế độ tối */
-    --text-light: #b0b0b0; /* Màu chữ phụ chế độ tối */
-    --bg-light: #1a1a1a; /* Nền tổng thể chế độ tối */
-    --bg-section: #2d2d2d; /* Nền các phần nội dung chế độ tối */
-    --bg-card: #333333; /* Nền các card/item con chế độ tối */
-    --border-color: rgba(255, 255, 255, 0.1); /* Border nhẹ chế độ tối */
-    --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.5); /* Shadow chế độ tối */
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.4); /* Shadow hover chế độ tối */
+    --gradient-1: linear-gradient(45deg, #00e6d4, #00c4b6, #00a29e);
+    --super-gradient: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39, #FFEB3B);
+    --primary-color-fallback: #00e6d4;
+    --secondary-color-fallback: #00e6d4;
+    --text-color: #e0e0e0;
+    --text-light: #b0b0b0;
+    --bg-light: #1a1a1a;
+    --bg-section: #2d2d2d;
+    --bg-card: #333333;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.4);
     --shadow-item: rgba(255, 255, 255, 0.05) 0px 1px 2px 0px;
     --shadow-item-hover: rgba(255, 255, 255, 0.1) 0px 5px 15px;
-    --navbar-bg: rgba(26, 26, 26, 0.95); /* Nền navbar chế độ tối */
-    --navbar-border: 1px solid rgba(255, 255, 255, 0.1); /* Border navbar chế độ tối */
-    --link-color-fallback: #00e6d4; /* Màu liên kết dự phòng dark mode */
+    --navbar-bg: rgba(26, 26, 26, 0.95);
+    --navbar-border: 1px solid rgba(255, 255, 255, 0.1);
+    --link-color-fallback: #00e6d4;
 }
 
-/* Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', 'Segoe UI', sans-serif; /* Font chữ ưu tiên */
+    font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
 body {
@@ -67,36 +59,33 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     font-size: 16px;
-    transition: var(--transition-base); /* Transition cho dark mode */
+    transition: var(--transition-base);
 }
 
-/* Typography with dynamic gradient */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
-    transition: var(--transition-base); /* Transition cho dark mode */
+    transition: var(--transition-base);
 }
 
-/* Các tiêu đề chính */
 h1, .main-content > section h3, .personal-info-section h3,
 .skill-category-header, .goal-item h4, .project-header,
 .education-item h4, .certificate-content h4, .navbar .nav-links a {
-    color: var(--primary-color-fallback); /* Màu dự phòng */
+    color: var(--primary-color-fallback);
     background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient 15s ease infinite; /* Hiệu ứng chuyển động */
+    animation: gradient 15s ease infinite;
 }
 
-/* Các tiêu đề phụ / màu phụ */
 h2, .education-degree {
-    color: var(--secondary-color-fallback); /* Màu dự phòng */
+    color: var(--secondary-color-fallback);
     background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient 15s ease infinite reverse; /* Hiệu ứng chuyển động ngược lại */
+    animation: gradient 15s ease infinite reverse;
 }
 
 
@@ -105,7 +94,6 @@ h2 { font-size: 2rem; }
 h3 { font-size: 1.75rem; margin-bottom: calc(var(--spacing) * 1.5); }
 p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 
-/* Layout */
 .container {
     max-width: 1200px;
     margin: 2rem auto;
@@ -113,10 +101,9 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     box-shadow: var(--shadow-base);
     border-radius: 20px;
     padding: calc(var(--spacing) * 2);
-    transition: var(--transition-base); /* Transition cho dark mode */
+    transition: var(--transition-base);
 }
 
-/* Animations */
 @keyframes gradient {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -127,25 +114,24 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     50% { transform: translateY(-10px); }
 }
 
-/* Banner Section */
 .banner {
     background: var(--gradient-1);
     background-size: 300% 300%;
     animation: gradient 15s ease infinite;
     padding: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
     border-radius: 20px 20px 0 0;
-    margin: -2rem -2rem 0; /* Kéo ra sát mép container */
+    margin: -2rem -2rem 0;
     color: white;
     position: relative;
     overflow: hidden;
-    text-align: center; /* Căn giữa nội dung banner */
+    text-align: center;
 }
 
 .profile-container {
     position: relative;
     z-index: 1;
     display: flex;
-    flex-direction: column; /* Xếp dọc trên mobile */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: calc(var(--spacing) * 1.5);
@@ -159,7 +145,7 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     overflow: hidden;
     border: 4px solid white;
     box-shadow: var(--shadow-base);
-    animation: float 3s ease-in-out infinite; /* Thêm hiệu ứng float */
+    animation: float 3s ease-in-out infinite;
 }
 
 .profile-pic img {
@@ -170,8 +156,8 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 
 .profile-text h1,
 .profile-text h2 {
-    color: white; /* Giữ màu trắng cho text trong banner */
-    background: none; /* Bỏ gradient động cho text trong banner */
+    color: white;
+    background: none;
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
     animation: none;
@@ -190,28 +176,89 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     opacity: 0.9;
 }
 
-/* Contact Info (on Banner) */
-.contact-info {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Cho phép xuống dòng */
-    gap: calc(var(--spacing) * 1.5);
-    margin: calc(var(--spacing) * 1.5) 0;
+.contact {
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  padding: 60px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.contact-info .contact-item { /* Thêm .contact-info để tránh trùng lặp */
-    display: flex;
-    align-items: center;
-    gap: calc(var(--spacing) * 0.5);
-    color: white;
-    font-size: 1.05rem;
+.contact h3 {
+  font-size: 32px;
+  color: #0077b6;
+  margin-bottom: 10px;
 }
 
-.contact-info .contact-item i {
-    font-size: 1.1rem;
+.contact-intro {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
 }
 
-/* Social Links (on Banner) */
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  padding: 0 10px;
+}
+
+.contact-method-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-method-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.icon-circle {
+  background-color: #0d6efd;
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact-method-item span,
+.contact-method-item a {
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.contact-method-item a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.call-to-action {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #444;
+  font-style: italic;
+}
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -232,18 +279,16 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 
 .social-icon:hover {
     transform: translateY(-5px) scale(1.1);
-    /* Màu nền gradient động khi hover */
     background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     animation: gradient 15s ease infinite;
-    -webkit-background-clip: border-box; /* Quan trọng để gradient hiển thị trên nền */
-    -webkit-text-fill-color: initial; /* Reset để icon không bị trong suốt */
-    color: white; /* Đảm bảo icon có màu khi hover */
-    box-shadow: 0 0 15px rgba(255,255,255,0.5); /* Thêm glow */
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: initial;
+    color: white;
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
 }
 
 
-/* --- Section Styling Common --- */
 .main-content > section, .personal-info-section {
     padding: calc(var(--spacing) * 2);
     background-color: var(--bg-section);
@@ -266,35 +311,31 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: var(--super-gradient); /* Line dưới tiêu đề cũng gradient động */
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     animation: gradient 15s ease infinite;
     border-radius: 3px;
 }
 
-/* --- Item Styling Common (for info-item, about-item, skill-item, interest-item, contact-method-item, project-item, education-item, certificate-item) --- */
 .info-item, .about-item, .skill-item, .interest-item, .contact-method-item,
 .project-item, .education-item, .certificate-item {
     background-color: var(--bg-card);
-    border-radius: 10px; /* Nhỏ hơn so với section */
+    border-radius: 10px;
     box-shadow: var(--shadow-item);
     transition: var(--transition-base);
 }
 
 .info-item:hover, .about-item:hover, .skill-item:hover, .interest-item:hover, .contact-method-item:hover,
 .project-item:hover, .education-item:hover, .certificate-item:hover {
-    transform: translateY(-3px); /* Hiệu ứng nhẹ hơn cho item */
+    transform: translateY(-3px);
     box-shadow: var(--shadow-item-hover);
 }
 
-/* Icons within items */
 .info-item i, .about-item i, .skill-category-header i, .certificate-item i, .interest-item i, .contact-method-item i, .project-header i {
-    color: var(--secondary-color-fallback); /* Màu dự phòng cho icons */
-    /* Có thể thêm gradient cho icon nếu muốn, nhưng cần cân nhắc độ phức tạp */
+    color: var(--secondary-color-fallback);
 }
 
 
-/* --- Personal Information Section --- */
 .personal-info-section {
     margin-top: calc(var(--spacing) * 2);
     margin-bottom: calc(var(--spacing) * 2);
@@ -306,14 +347,13 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     justify-content: center;
     margin-top: calc(var(--spacing) * 2);
 }
-.info-item { /* Override padding for this specific item */
+.info-item {
     padding: var(--spacing);
 }
 .info-item i { font-size: 1.3em; min-width: 30px; text-align: center; }
 .info-item span { color: var(--text-color); font-size: 1.05em; }
 
 
-/* Navbar */
 .navbar {
     position: sticky;
     top: 0;
@@ -341,15 +381,14 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     transition: var(--transition-base);
 }
 .nav-links a:hover {
-    background: var(--super-gradient); /* Nền gradient khi hover */
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     animation: gradient 15s ease infinite;
-    color: white; /* Text trắng trên nền gradient */
-    -webkit-background-clip: border-box; /* Quan trọng để gradient hiển thị trên nền */
-    -webkit-text-fill-color: initial; /* Reset để text có màu */
+    color: white;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: initial;
 }
 
-/* --- Giới thiệu (About Section) --- */
 .about p { text-align: justify; }
 .about-details {
     display: flex;
@@ -367,7 +406,6 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 .about-item i { font-size: 1.1em; }
 
 
-/* Skills Section */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -392,7 +430,7 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     flex-direction: column;
     gap: var(--spacing);
 }
-.skill-item:hover { transform: translateX(5px); } /* Specific hover for skill item */
+.skill-item:hover { transform: translateX(5px); }
 .skill-info {
     display: flex;
     justify-content: space-between;
@@ -408,13 +446,12 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 }
 .skill-level {
     height: 100%;
-    background: var(--super-gradient); /* Thanh skill cũng gradient động */
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     animation: gradient 15s ease infinite;
     transform-origin: left;
     transition: transform 1s ease;
 }
-/* Skill levels for animation */
 .skill-item[data-level="90"] .skill-level { transform: scaleX(0.9); }
 .skill-item[data-level="80"] .skill-level { transform: scaleX(0.8); }
 .skill-item[data-level="75"] .skill-level { transform: scaleX(0.75); }
@@ -436,7 +473,6 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     border: 1px solid var(--border-color);
 }
 
-/* Goals Section */
 .goals-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -464,15 +500,14 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     content: '•';
     position: absolute;
     left: 0;
-    color: var(--primary-color-fallback); /* Màu dự phòng */
-    background: var(--super-gradient); /* Bullet cũng gradient động */
+    color: var(--primary-color-fallback);
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradient 15s ease infinite reverse;
 }
 
-/* --- Dự án (Projects Section) --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -496,7 +531,7 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     margin-bottom: var(--spacing);
 }
 .project-header i { font-size: 2em; }
-.project-header h4 { margin: 0; font-size: 1.3em; } /* đã được áp dụng gradient ở phần Typography */
+.project-header h4 { margin: 0; font-size: 1.3em; }
 .project-tech {
     font-style: italic;
     color: var(--text-light);
@@ -518,8 +553,8 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     content: '✓';
     position: absolute;
     left: 0;
-    color: var(--primary-color-fallback); /* Màu dự phòng */
-    background: var(--super-gradient); /* Tick cũng gradient động */
+    color: var(--primary-color-fallback);
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -537,8 +572,8 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     display: flex;
     align-items: center;
     gap: 5px;
-    background-color: var(--primary-color-fallback); /* Màu nền dự phòng */
-    background: var(--super-gradient); /* Nền gradient động */
+    background-color: var(--primary-color-fallback);
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     animation: gradient 15s ease infinite;
     color: white;
@@ -550,16 +585,15 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 6px;
 }
 .project-link:hover {
-    background-color: var(--secondary-color-fallback); /* Màu nền dự phòng khi hover */
-    background: var(--super-gradient); /* Vẫn là gradient động */
+    background-color: var(--secondary-color-fallback);
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
-    animation: gradient 15s ease infinite reverse; /* Đổi hướng animation khi hover */
+    animation: gradient 15s ease infinite reverse;
     transform: translateY(-2px);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 10px;
 }
 .project-link i { color: white; }
 
-/* --- Học vấn (Education Section) --- */
 .education-item {
     padding: calc(var(--spacing) * 1.5);
     box-shadow: rgba(0, 0, 0, 0.07) 0px 8px 24px;
@@ -579,7 +613,7 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 .education-degree {
     margin-bottom: var(--spacing);
     font-size: 1.1em;
-} /* đã được áp dụng gradient ở phần Typography */
+}
 .education-description {
     color: var(--text-color);
     font-size: 1em;
@@ -589,7 +623,6 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 }
 .education-description br { line-height: 1; margin: 0; }
 
-/* --- Chứng chỉ (Certificates Section) --- */
 .certificates-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -607,7 +640,7 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 .certificate-content h4 {
     margin-bottom: calc(var(--spacing) * 0.25);
     font-size: 1.2em;
-} /* đã được áp dụng gradient ở phần Typography */
+}
 .certificate-content p {
     color: var(--text-light);
     margin-bottom: calc(var(--spacing) * 0.25);
@@ -619,7 +652,6 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     font-size: 0.85em;
 }
 
-/* --- Sở thích (Interests Section) --- */
 .interests-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -634,9 +666,9 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     gap: calc(var(--spacing) * 0.75);
 }
 .interest-item i { font-size: 2.5em; }
-.interest-item span { font-weight: 500; color: var(--text-color); font-size: 1em; }
+.interest-item span { font-weight: 500; color: var(--text-color); font-size: 1em; 
+}
 
-/* --- Liên hệ (Contact Section) --- */
 .contact p { text-align: center; }
 .contact-methods {
     display: flex;
@@ -657,8 +689,8 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     transition: color 0.2s ease;
 }
 .contact-method-item a:hover {
-    color: var(--primary-color-fallback); /* Màu dự phòng */
-    background: var(--super-gradient); /* Link cũng gradient động */
+    color: var(--primary-color-fallback);
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -672,7 +704,6 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
     margin-top: calc(var(--spacing) * 2);
 }
 
-/* Theme Switch */
 .theme-switch-wrapper {
     position: fixed;
     top: 20px;
@@ -728,8 +759,8 @@ p { font-size: 1.125rem; line-height: 1.8; margin-bottom: var(--spacing); }
 }
 
 input:checked + .slider {
-    background-color: var(--primary-color-fallback); /* Màu nền slider khi bật (dự phòng) */
-    background: var(--super-gradient); /* Slider cũng gradient động */
+    background-color: var(--primary-color-fallback);
+    background: var(--super-gradient);
     background-size: var(--super-gradient-size);
     animation: gradient 15s ease infinite;
 }
@@ -739,14 +770,13 @@ input:checked + .slider:before {
 }
 
 .slider .fa-sun {
-    color: #f1c40f; /* Màu icon mặt trời */
+    color: #f1c40f;
 }
 
 .slider .fa-moon {
-    color: #34495e; /* Màu icon mặt trăng */
+    color: #34495e;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         margin: 1rem auto;
